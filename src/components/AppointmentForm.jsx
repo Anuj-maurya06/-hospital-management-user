@@ -123,7 +123,7 @@ const AppointmentForm = () => {
           <div>
             <input
               type="number"
-              placeholder="Enter your Adhar no."
+              placeholder="Enter your Adhar 12 digit"
               value={adhar}
               onChange={(e) => setadhar(e.target.value)}
             />
