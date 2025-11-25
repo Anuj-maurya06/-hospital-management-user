@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-         "https://anuj-maurya06-hospital-management-b.vercel.app/",
+          "https://anuj-maurya06-hospital-management-b.vercel.app/api/v1/user/patient/me",
           {
             withCredentials: true,
           }
@@ -33,7 +33,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthenticated]);
+  }, []);
   return (
     <>
     <Router>
