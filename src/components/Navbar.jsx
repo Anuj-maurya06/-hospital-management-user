@@ -19,12 +19,14 @@ const Navbar = () => {
       toast.success(res.data.message);
       setIsAuthenticated(false);
       navigateTo("/login"); // ✅ logout ke baad redirect
+      setShow(false);
     } catch (err) {
       toast.error(err?.response?.data?.message || "Something went wrong!");
     }
   };
 
   const goToLogin = () => {
+    setShow(false); // close mobile menu before navigating
     navigateTo("/login");
   };
 
@@ -35,9 +37,9 @@ const Navbar = () => {
       </div>
       <div className={show ? "navLinks showmenu" : "navLinks"}>
         <div className="links">
-          <Link to="/" onClick={() => setShow(!show)}>Home</Link>
-          <Link to="/appointment" onClick={() => setShow(!show)}>Appointment</Link>
-          <Link to="/about" onClick={() => setShow(!show)}>About Us</Link>
+          <Link to="/" onClick={() => setShow(false)}>Home</Link>
+          <Link to="/appointment" onClick={() => setShow(false)}>Appointment</Link>
+          <Link to="/about" onClick={() => setShow(false)}>About Us</Link>
         </div>
         {isAuthenticated ? (
           <button className="logoutBtn btn" onClick={handleLogout}>
