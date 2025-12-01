@@ -11,8 +11,6 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [adhar, setadhar] = useState("");
-  const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +22,7 @@ const Register = () => {
       await axios
         .post(
           "https://anuj-maurya06-hospital-management-b.vercel.app/api/v1/user/patient/register",
-          { firstName, lastName, email, phone, adhar, dob, gender, password,role:"Patient" },
+          { firstName, lastName, email, phone, gender, password, role: "Patient" },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
@@ -38,8 +36,6 @@ const Register = () => {
           setLastName("");
           setEmail("");
           setPhone("");
-          setadhar("");
-          setDob("");
           setGender("");
           setPassword("");
         });
@@ -90,20 +86,7 @@ const Register = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <div>
-            <input
-              type="number"
-              placeholder="adhar"
-              value={adhar}
-              onChange={(e) => setadhar(e.target.value)}
-            />
-            <input
-              type={"date"}
-              placeholder="Date of Birth"
-              value={dob}
-              onChange={(e) => setDob(e.target.value)}
-            />
-          </div>
+          {/* Removed Aadhar and Date of Birth inputs as they are optional */}
           <div>
             <select value={gender} onChange={(e) => setGender(e.target.value)}>
               <option value="">Select Gender</option>
